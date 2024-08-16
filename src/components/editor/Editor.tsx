@@ -16,6 +16,7 @@ import {
   liveblocksConfig,
   useEditorStatus,
 } from '@liveblocks/react-lexical';
+import { Comments } from '../comments';
 import { DeleteModal } from '../delete-modal';
 import { Loader } from '../loader';
 import FloatingToolbarPlugin from './plugins/FloatingToolbarPlugin';
@@ -77,6 +78,7 @@ export function Editor({
           <LiveblocksPlugin>
             <FloatingComposer className='w-[350px]' />
             <FloatingThreads threads={threads as ThreadData[]} />
+            <Comments />
           </LiveblocksPlugin>
         </div>
       </div>
