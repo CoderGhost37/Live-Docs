@@ -20,17 +20,8 @@ export const getClerkUsers = async ({ userIds }: { userIds: string[] }) => {
       users.find((user) => user.email === email),
     );
 
-    return {
-      success: true,
-      message: 'Users fetched successfully',
-      data: parseStringify(sortedUsers),
-    };
-  } catch (error: any) {
+    return parseStringify(sortedUsers);
+  } catch (error) {
     console.log(`Error fetching users: ${error}`);
-    return {
-      success: false,
-      message: 'Error fetching users',
-      data: error.message,
-    };
   }
 };
