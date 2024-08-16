@@ -20,7 +20,7 @@ const DocumentPage = async ({ params: { id } }: SearchParamProps) => {
         roomId={id}
         roomMetadata={room.metadata}
         users={[]}
-        currentUserType='creator'
+        currentUserType='editor'
       />
     </main>
   )
