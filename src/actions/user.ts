@@ -1,10 +1,9 @@
 'use server';
 
-import { clerkClient } from "@clerk/nextjs/server";
-import { parseStringify } from "@/lib/utils";
-import { liveblocks } from "@/lib/liveblocks";
+import { parseStringify } from '@/lib/utils';
+import { clerkClient } from '@clerk/nextjs/server';
 
-export const getClerkUsers = async ({ userIds }: { userIds: string[]}) => {
+export const getClerkUsers = async ({ userIds }: { userIds: string[] }) => {
   try {
     const { data } = await clerkClient.users.getUserList({
       emailAddress: userIds,
@@ -17,19 +16,21 @@ export const getClerkUsers = async ({ userIds }: { userIds: string[]}) => {
       avatar: user.imageUrl,
     }));
 
-    const sortedUsers = userIds.map((email) => users.find((user) => user.email === email));
+    const sortedUsers = userIds.map((email) =>
+      users.find((user) => user.email === email),
+    );
 
     return {
       success: true,
       message: 'Users fetched successfully',
-      data: parseStringify(sortedUsers)
-    }
+      data: parseStringify(sortedUsers),
+    };
   } catch (error: any) {
     console.log(`Error fetching users: ${error}`);
     return {
       success: false,
       message: 'Error fetching users',
-      data: error.message
-    }
+      data: error.message,
+    };
   }
-}
+};

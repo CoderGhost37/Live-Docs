@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { ReactNode } from "react";
-import {
-  LiveblocksProvider,
-  ClientSideSuspense,
-} from "@liveblocks/react/suspense";
-import { Loader } from "@/components/loader";
 import { getClerkUsers } from '@/actions/user';
+import { Loader } from '@/components/loader';
+import {
+  ClientSideSuspense,
+  LiveblocksProvider,
+} from '@liveblocks/react/suspense';
+import { ReactNode } from 'react';
 
 const Provider = ({ children }: { children: ReactNode }) => {
   return (
@@ -17,11 +17,9 @@ const Provider = ({ children }: { children: ReactNode }) => {
         return res.data;
       }}
     >
-      <ClientSideSuspense fallback={<Loader />}>
-        {children}
-      </ClientSideSuspense>
+      <ClientSideSuspense fallback={<Loader />}>{children}</ClientSideSuspense>
     </LiveblocksProvider>
   );
-}
+};
 
-export default Provider
+export default Provider;

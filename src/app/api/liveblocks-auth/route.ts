@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     redirect('/sign-in');
   }
 
-  const {id, firstName, lastName, emailAddresses, imageUrl} = clerkUser;
+  const { id, firstName, lastName, emailAddresses, imageUrl } = clerkUser;
   // Get the current user from your database
   const user = {
     id: id,

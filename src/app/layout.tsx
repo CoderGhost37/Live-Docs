@@ -4,12 +4,12 @@ import * as React from 'react';
 import { Inter as FontSans } from 'next/font/google';
 import '@/styles/globals.css';
 
+import { Toaster } from '@/components/ui/sonner';
 import { siteConfig } from '@/constant/config';
 import { cn } from '@/lib/utils';
 import { ClerkProvider } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
 import Provider from './Provider';
-import { Toaster } from "@/components/ui/sonner"
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -58,7 +58,7 @@ export default function RootLayout({
         variables: {
           colorPrimary: '#3371FF',
           fontSize: '16px',
-        }
+        },
       }}
     >
       <html suppressHydrationWarning>
