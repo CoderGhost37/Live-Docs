@@ -9,6 +9,7 @@ import { ClientSideSuspense, RoomProvider } from '@liveblocks/react';
 import Image from 'next/image';
 import React from 'react';
 import { ActiveCollaborators } from './active-collaborators';
+import { ShareModel } from './share-model';
 import { Input } from './ui/input';
 
 export const CollaborativeRoom = ({
@@ -117,6 +118,14 @@ export const CollaborativeRoom = ({
             </div>
             <div className='flex w-full flex-1 justify-end gap-2 sm:gap-3'>
               <ActiveCollaborators />
+
+              <ShareModel
+                roomId={roomId}
+                collaborators={users}
+                creatorId={roomMetadata.creatorId}
+                currentUserType={currentUserType}
+              />
+
               <SignedOut>
                 <SignInButton />
               </SignedOut>
